@@ -1,4 +1,12 @@
 language: node_js
-node_js: 
-  - "10.15.3"
-script: npm run build  
+node_js:
+- 10.15.3
+addons:
+    ssh_known_hosts:
+     - 119.28.47.57:22222
+script: npm run build
+before_install:
+- openssl aes-256-cbc -K $encrypted_1fb466159c29_key -iv $encrypted_1fb466159c29_iv
+  -in id_rsa.enc -out id_rsa -d
+after_success:
+- rsync -az -vv --delete -e 'ssh -p 22222' ./dist/**  root@119.28.47.57:/data/release/test-vue/dist/
