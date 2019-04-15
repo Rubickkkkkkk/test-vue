@@ -3,7 +3,7 @@ node_js:
 - 10.15.3
 addons:
   ssh_known_hosts:
-  - 119.28.47.57:22
+  - 119.28.47.57
 script: npm run build
 after_success:
 - rsync -az -vvv --delete -e ssh /dist root@119.28.47.57:/data/release/test-vue/dist
