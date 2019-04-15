@@ -8,5 +8,5 @@ script: npm run build
 after_success:
 - rsync -az -vv --delete -e ssh /dist root@119.28.47.57:/data/release/test-vue/dist
 before_install:
-- openssl aes-256-cbc -K $encrypted_fd149d5216df_key -iv $encrypted_fd149d5216df_iv
-  -in id_rsa..enc -out id_rsa. -d
+- openssl aes-256-cbc -K $encrypted_ef0921c40389_key -iv $encrypted_ef0921c40389_iv
+  -in id_rsa.enc -out id_rsa -d
