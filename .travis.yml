@@ -6,7 +6,7 @@ addons:
   - 119.28.47.57
 script: npm run build
 after_success:
-- ssh root@119.28.47.57 "mkdir /data/release/test-vue/dist"
+- ssh root@119.28.47.57 "mkdir -p /data/release/test-vue/dist"
 - rsync -az -vvv --delete -e ssh ./dist/*  root@119.28.47.57:/data/release/test-vue/dist
 before_install:
 - openssl aes-256-cbc -K $encrypted_ef0921c40389_key -iv $encrypted_ef0921c40389_iv
