@@ -10,3 +10,6 @@ after_success:
 before_install:
 - openssl aes-256-cbc -K $encrypted_ef0921c40389_key -iv $encrypted_ef0921c40389_iv
   -in id_rsa.enc -out id_rsa -d
+- eval "$(ssh-agent -s)"
+- chmod 600 id_rsa
+- ssh-add id_rsa
